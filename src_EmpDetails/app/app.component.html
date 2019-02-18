@@ -1,0 +1,40 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <div class="container">
+    <h2>Contact Information</h2><br>
+    <h6>Please fill out your contact information below.</h6>
+
+    <form name="frmCustomer" [formGroup]="frmCustomer" (submit)="save()">
+      <div class="form-group">
+        <label>Name <sup>*</sup></label>
+        <div>
+          <input class="form-control" formControlName="firstName" name="firstName" />
+          <input class="form-control" formControlName="lastName" name="lastName" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email<sup>*</sup></label>
+        <input class="form-control" formControlName="email" name="email" />
+      </div>
+      <div class="form-group">
+        <label>Phone<sup>*</sup></label>
+        <input class="form-control" formControlName="phone" name="phone" />
+      </div>
+      <div class="form-group">
+        <label>Address<sup>*</sup></label>
+        <input class="form-control" formControlName="address" name="address" />
+        <input class="form-control" formControlName="city" name="city" />
+        <input class="form-control" formControlName="state" name="state" />
+      </div>
+      <div class="form-group">
+        <label>Comments</label>
+        <textarea rows="5" cols="10" formControlName="comment" name="comment">
+       </textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+
+</div>
+
+<router-outlet></router-outlet>

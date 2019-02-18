@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <title>Customer care</title>
+</head>
+<style>
+  .A1 {
+            
+           
+            width: 50%;
+            float: left;
+        }
+
+        .A3 {
+            
+            
+            width: 25%;
+            float: left;
+        }
+        .menu {
+            width: 50%;
+            float: left;
+            padding: 15px;
+            border: 1px solid red;
+        }
+
+        .main {
+            width: 30%;
+            float: left;
+            padding: 15px;
+            border: 1px solid;
+        }
+        .container{
+            width: 70%;
+            border: 1px solid #4CAF50;
+        }
+        .custom{
+            width:30%;
+            padding-left: 80%;
+        }
+
+</style>
+
+<body>
+  <div class="container">
+    &nbsp;&nbsp;&nbsp;<h3>CUSTOMER SUPPORT</h3>
+    &nbsp;&nbsp;&nbsp;<img src="../assets/image/images.jpeg">
+    <form name="customerForm" [formGroup]="customerForm" (submit)="onSubmit()">
+      <div clas="form-group">
+        <label>Name</label>
+        <hr>
+        <div class="A1">
+          <input type="text" class="form-control" formControlName="firstName" name="firstName">
+          <small>First Name</small>
+          <div *ngIf="customerForm.controls.firstName.dirty && !customerForm.controls.firstName.valid
+            "
+            class="alert alert-danger">
+            <p *ngIf="customerForm.controls.firstName.errors.required">
+              First name is Must
+            </p>
+            <p *ngIf="customerForm.controls.firstName.errors.pattern">
+              First name should contain alphabets only
+            </p>
+          </div>
+
+        </div>
+        <div class="A1">
+          <input type="text" class="form-control" formControlName="lastName" name="lastName">
+          <small>Last Name</small>
+          <div *ngIf="customerForm.controls.lastName.dirty && !customerForm.controls.lastName.valid
+            " class="alert alert-danger">
+            <p *ngIf="customerForm.controls.lastName.errors.required">
+              Last name is Must
+            </p>
+            <p *ngIf="customerForm.controls.lastName.errors.pattern">
+              Last name should contain alphabets only
+            </p>
+          </div>
+        </div>
+        <hr>
+        <label>Email</label>
+        <input type="email" class="form-control" formControlName="email" name="email">
+        <div *ngIf="customerForm.controls.email.dirty && !customerForm.controls.email.valid 
+            " class="alert alert-danger">
+          <p *ngIf="customerForm.controls.email.errors.required">
+            email is Must
+          </p>
+          <p *ngIf="customerForm.controls.email.errors.pattern">
+            Enter valid email-id
+          </p>
+        </div>
+        <label>Phone</label>
+        <input type="text" class="form-control" formControlName="phone" name="phone">
+        <div *ngIf="customerForm.controls.phone.dirty && !customerForm.controls.phone.valid 
+            " class="alert alert-danger">
+          <p *ngIf="customerForm.controls.phone.errors.required">
+            phone is Must
+          </p>
+          <p *ngIf="customerForm.controls.phone.errors.pattern">
+            Only digits are allowed.
+          </p>
+        </div>
+        <label>Address</label>
+        <input type="text" class="form-control" formControlName="addr1" name="addr1">
+        <input type="text" class="form-control" formControlName="addr2" name="addr2">
+        <div class="A1">
+          <input type="text" class="form-control" formControlName="city" name="city">
+          <small>City</small></div>
+        <div class="A3">
+          <select class="form-control" formControlName="state" name="state">
+
+            <option *ngFor="let c of states" value="{{ c }}">{{c}}</option>
+          </select>
+          <small>State</small>
+        </div>
+        <div class="A3">
+          <input type="text" class="form-control" formControlName="zipcode" name="zipcode">
+          <small>Zip Code</small>
+
+          <div *ngIf="customerForm.controls.zipcode.dirty && !customerForm.controls.zipcode.valid 
+            " class="alert alert-danger">
+            <p *ngIf="customerForm.controls.zipcode.errors.required">
+              zipcode is Must
+            </p>
+            <p *ngIf="customerForm.controls.zipcode.errors.pattern">
+              Only digits are allowed.
+            </p>
+            <p *ngIf="customerForm.controls.zipcode.errors.minlength">
+              minimum 5 digits are required.
+            </p>
+          </div>
+        </div>
+        Please describe the incident you would like to report
+        <textarea rows="5" cols="20" class="form-control" formControlName="incique"></textarea>
+        <div *ngIf="customerForm.controls.incique.dirty && !customerForm.controls.incique.valid 
+            " class="alert alert-danger">
+          <p *ngIf="customerForm.controls.incique.errors.minlength">
+            minimum 20 characters are required.
+          </p>
+        </div>
+        How would you like to see this incident resolved?
+        <textarea rows="5" cols="20" class="form-control" formControlName="incisol"></textarea>
+        <div *ngIf="customerForm.controls.incisol.dirty && !customerForm.controls.incisol.valid 
+            " class="alert alert-danger">
+          <p *ngIf="customerForm.controls.incisol.errors.minlength">
+            minimum 20 characters are required.
+          </p>
+        </div>
+        <button class="btn btn-success" type="submit" value="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

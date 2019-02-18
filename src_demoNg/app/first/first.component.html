@@ -1,0 +1,15 @@
+<!-- Enter name:
+<input type=text name=name [(ngModel)]="name">
+  <button (click)="myFun($event)">Submit</button> -->
+
+
+  <form #form="ngForm" (ngSubmit)="logForm(form.value)">
+    Enter name:
+  <input type=text name=name [(ngModel)]="name">
+    email:
+  <input type="email" name=email [(ngModel)]="email">
+  <!-- <input type="submit" value="Enter"> -->
+  <input (change)="inputValue = $event.target.value" [value]="inputValue"/>
+  <input type="hidden" name="name" value=>
+  <button><a href='/data'>Technology</a></button>
+  </form>
